@@ -1,46 +1,77 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Grafos</title>
-    <link rel="stylesheet" href="estilo.css">
-    <script src="functions.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <link href="./estilo.css" rel="stylesheet">
+    <script type="text/javascript" src="./functions.js"></script>
 </head>
 <body>
     <header>
-
+        <h1>Aeropuertos</h1>
     </header>
+    <main>
+        <p>Grafo:</p>
+        <div id="ElGrafo">
+            <script>
+                // create an array with nodes
+                var nodes = new vis.DataSet([{
+                    id: 1,
+                    label: "Node 1"
+                },
+                {
+                    id: 2,
+                    label: "Node 2"
+                },
+                {
+                    id: 3,
+                    label: "Node 3"
+                },
+                {
+                    id: 4,
+                    label: "Node 4"
+                },
+                {
+                    id: 5,
+                    label: "Node 5"
+                },
+                ]);
 
-    <div class="grid">
-        <div>
-            <canvas id="canvas" width="1200" height="600">
+                // create an array with edges
+                var edges = new vis.DataSet([{
+                    from: 1,
+                    to: 3
+                },
+                {
+                    from: 1,
+                    to: 2
+                },
+                {
+                    from: 2,
+                    to: 4
+                },
+                {
+                    from: 2,
+                    to: 5
+                },
+                {
+                    from: 3,
+                    to: 3
+                },
+                ]);
 
-            </canvas>
+                // create a network
+                var container = document.getElementById("ElGrafo");
+                var data = {
+                nodes: nodes,
+                edges: edges,
+                };
+                var options = {};
+                var network = new vis.Network(container, data, options);
+                console.log('Prueba');
+            </script>
         </div>
-
-        <div>
-            <div id="cajaHerramientas">
-                <div class="grid1">
-                    <div>
-                        <button id="b1">
-                            Crear nodo
-                        </button>
-                    </div>
-                    <div>
-                        <button id="b2">
-                            Eliminar nodo
-                        </button>
-                    </div>
-                    <div>
-                        <button id="b3">
-                            Agregar arista
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    </main>
 </body>
 </html>
