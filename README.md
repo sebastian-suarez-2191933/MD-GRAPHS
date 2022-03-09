@@ -1,2 +1,2 @@
-# MD-GRAPHS
-Repositorio para la realización del proyecto para la asignatura de matemáticas discretas.
+# Creación de entidades
+Rama especificamente para crear las entidades del grafo y hacer micropruebas.
